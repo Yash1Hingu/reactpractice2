@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import UserInput from './Components/UserInput/UserInput';
 import { useState } from 'react';
+import UserList from './Components/UserList/UserList';
 const DUMMY_USER = [
   {
     id: 'u1',
@@ -22,6 +23,7 @@ function App() {
   return (
     <div className="App">
       <UserInput onSubmit={handlerSubmit}/>
+      <UserList usersList={users}/>
     </div>
   );
 }
