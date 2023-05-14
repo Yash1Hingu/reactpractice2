@@ -20,10 +20,13 @@ function App() {
   const handlerSubmit = (data) => {
     setUsers(prevUsers => ([...prevUsers,data]))
   }
+  const handlerDelete = (id) => {
+    setUsers(users.filter(user => user.id != id));
+  }
   return (
     <div className={styeled.App}>
       <UserInput onSubmit={handlerSubmit}/>
-      <UserList usersList={users}/>
+      <UserList usersList={users} onDelete={handlerDelete}/>
     </div>
   );
 }

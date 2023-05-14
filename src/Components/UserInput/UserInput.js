@@ -46,11 +46,11 @@ const UserInput = (props) => {
                 <input type="number" name="userage" id="userage" value={EnterAge} onChange={handlerEnterAge} />
                 <button type="submit">Submit</button>
             </form>
-            <div className={styled.user_err} style={{ display: !open ? 'none' : '' }}>
+            <div className={styled.user_err} style={{ display: !open ? 'none' : '' }} onClick={handlerDialog}>
                 <div className={styled.user_err__box}>
                     <h2 className={styled.user_err__head}>Invaild Input</h2>
                     <p>{message}</p>
-                    <button onClick={handlerDialog}>Cancel</button>
+                    <button>Cancel</button>
                 </div>
             </div>
         </div>
