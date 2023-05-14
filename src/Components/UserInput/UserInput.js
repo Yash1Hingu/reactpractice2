@@ -1,34 +1,60 @@
 import { useState } from "react";
-
+import './UserInput.css'
 const UserInput = (props) => {
     const [EnterName,setName] = useState('');
     const [EnterAge,setAge] = useState('');
+    const [message,setMessage] = useState('');
+    const [open,setOpen] = useState(false);
 
     const handlerEnterName = (event) => {
         setName(event.target.value);
     }
     const handlerEnterAge = (event) => {
-        setAge(event.target.value);
+        setAge(Number(event.target.value));
+    }
+    const handlerDialog = (event) => {
+        event.preventDefault()
+        setOpen(false);
+        setAge('');
     }
     const handlerSubmit = (event) => {
         event.preventDefault();
-
+        console.log(EnterAge)
+        if(EnterName === '' && EnterAge === ''){
+            setOpen(true);
+            setMessage("Please Enter Username & Age");
+            return;
+        } else if(EnterAge <= 1){
+            setOpen(true);
+            setMessage("Enter Age > 0");
+            return;
+        }
         const userData = {
             id: Math.random().toString(),
             name: EnterName,
-            age: Number(EnterAge)
+            age: EnterAge
         }
+        setName('');
+        setAge('');
         props.onSubmit(userData);
     }
     return(
         <div className="user_input">
-            <form onSubmit={handlerSubmit}>
+            <form onSubmit={handlerSubmit} action="/">
                 <label htmlFor="username">User Name</label>
                 <input type="text" name="username" id="username" value={EnterName} onChange={handlerEnterName}/>
                 <label htmlFor="userage">Age</label>
                 <input type="number" name="userage" id="userage" value={EnterAge} onChange={handlerEnterAge}/>
                 <button type="submit">Submit</button>
             </form>
+            <div className="user_err">
+                <dialog open={open}>
+                    <form>
+                    <span>{message}</span>
+                    <button onClick={handlerDialog} type="submit">Cancel</button>
+                    </form>
+                </dialog>
+            </div>
         </div>
     );
 }
