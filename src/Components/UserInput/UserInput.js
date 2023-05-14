@@ -1,5 +1,5 @@
 import { useState } from "react";
-import './UserInput.css'
+import styled from './UserInput.module.css'
 const UserInput = (props) => {
     const [EnterName,setName] = useState('');
     const [EnterAge,setAge] = useState('');
@@ -19,7 +19,6 @@ const UserInput = (props) => {
     }
     const handlerSubmit = (event) => {
         event.preventDefault();
-        console.log(EnterAge)
         if(EnterName === '' && EnterAge === ''){
             setOpen(true);
             setMessage("Please Enter Username & Age");
@@ -47,12 +46,10 @@ const UserInput = (props) => {
                 <input type="number" name="userage" id="userage" value={EnterAge} onChange={handlerEnterAge}/>
                 <button type="submit">Submit</button>
             </form>
-            <div className="user_err">
+            <div className={styled['user_err']}>
                 <dialog open={open}>
-                    <form>
                     <span>{message}</span>
-                    <button onClick={handlerDialog} type="submit">Cancel</button>
-                    </form>
+                    <button onClick={handlerDialog}>Cancel</button>
                 </dialog>
             </div>
         </div>

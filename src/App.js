@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import styeled from './App.module.css';
 import UserInput from './Components/UserInput/UserInput';
 import { useState } from 'react';
 import UserList from './Components/UserList/UserList';
@@ -21,7 +21,7 @@ function App() {
     setUsers(prevUsers => ([...prevUsers,data]))
   }
   return (
-    <div className="App">
+    <div className={styeled.App}>
       <UserInput onSubmit={handlerSubmit}/>
       <UserList usersList={users}/>
     </div>
