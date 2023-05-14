@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import UserInput from './Components/UserInput/UserInput';
+import { useState } from 'react';
 const DUMMY_USER = [
   {
     id: 'u1',
@@ -14,8 +15,9 @@ const DUMMY_USER = [
   }
 ]
 function App() {
+  const [users,setUsers] = useState(DUMMY_USER);
   const handlerSubmit = (data) => {
-    console.log(data);
+    setUsers(prevUsers => ([...prevUsers,data]))
   }
   return (
     <div className="App">
