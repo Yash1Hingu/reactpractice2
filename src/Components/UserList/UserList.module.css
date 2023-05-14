@@ -12,4 +12,8 @@
     border-radius: 15px;
     border: 1px solid gray;
     margin-bottom: 10px;
+    cursor:pointer;
+}
+.list_item:hover{
+    background-color: hsl(271, 76%, 53%,20%) ;
 }

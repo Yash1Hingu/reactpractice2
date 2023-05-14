@@ -1,3 +1,23 @@
+.user_err{
+    position: absolute;
+    background-color: hsl(271, 76%, 53%,30%);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user_err__box{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+}
+.user_err__box .user_err__head{
+    color: hsl(271, 76%, 53%);
+    font-weight: 900;
+}
 .user_input{
     min-width: 500px;
     background-color: whitesmoke;

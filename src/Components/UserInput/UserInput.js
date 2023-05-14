@@ -1,10 +1,10 @@
 import { useState } from "react";
 import styled from './UserInput.module.css'
 const UserInput = (props) => {
-    const [EnterName,setName] = useState('');
-    const [EnterAge,setAge] = useState('');
-    const [message,setMessage] = useState('');
-    const [open,setOpen] = useState(false);
+    const [EnterName, setName] = useState('');
+    const [EnterAge, setAge] = useState('');
+    const [message, setMessage] = useState('');
+    const [open, setOpen] = useState(false);
 
     const handlerEnterName = (event) => {
         setName(event.target.value);
@@ -19,13 +19,13 @@ const UserInput = (props) => {
     }
     const handlerSubmit = (event) => {
         event.preventDefault();
-        if(EnterName === '' && EnterAge === ''){
+        if (EnterName === '' && EnterAge === '') {
             setOpen(true);
-            setMessage("Please Enter Username & Age");
+            setMessage("Please Enter Username & Age.");
             return;
-        } else if(EnterAge <= 1){
+        } else if (EnterAge <= 1) {
             setOpen(true);
-            setMessage("Enter Age > 0");
+            setMessage("Enter Age > 0.");
             return;
         }
         const userData = {
@@ -37,20 +37,21 @@ const UserInput = (props) => {
         setAge('');
         props.onSubmit(userData);
     }
-    return(
+    return (
         <div className={styled.user_input}>
             <form onSubmit={handlerSubmit} action="/">
                 <label htmlFor="username">User Name</label>
-                <input type="text" name="username" id="username" value={EnterName} onChange={handlerEnterName}/>
+                <input type="text" name="username" id="username" value={EnterName} onChange={handlerEnterName} />
                 <label htmlFor="userage">Age</label>
-                <input type="number" name="userage" id="userage" value={EnterAge} onChange={handlerEnterAge}/>
+                <input type="number" name="userage" id="userage" value={EnterAge} onChange={handlerEnterAge} />
                 <button type="submit">Submit</button>
             </form>
-            <div className={styled['user_err']}>
-                <dialog open={open}>
-                    <span>{message}</span>
+            <div className={styled.user_err} style={{ display: !open ? 'none' : '' }}>
+                <div className={styled.user_err__box}>
+                    <h2 className={styled.user_err__head}>Invaild Input</h2>
+                    <p>{message}</p>
                     <button onClick={handlerDialog}>Cancel</button>
-                </dialog>
+                </div>
             </div>
         </div>
     );
