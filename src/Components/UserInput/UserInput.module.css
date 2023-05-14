@@ -19,11 +19,16 @@
     font-weight: 900;
 }
 .user_input{
-    min-width: 500px;
+    width: 500px;
     background-color: whitesmoke;
     padding: 20px;
     margin-top: 50px;
     border-radius: 20px;
+}
+@media screen and (max-width: 500px) {
+    .user_input{
+        width: 300px;
+    }
 }
 .user_input form{
     display: flex;
