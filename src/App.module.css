@@ -5,4 +5,7 @@
 .App{
   background-color: rgb(58, 58, 58);
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

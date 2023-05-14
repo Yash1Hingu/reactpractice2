@@ -1,6 +1,39 @@
-.user_err{
-    position: absolute;
-    width: 100vw;
+.user_input{
+    min-width: 500px;
+    background-color: whitesmoke;
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 20px;
+}
+.user_input form{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+}
+input {
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+input:focus {
+    border: 2px solid hsl(271, 76%, 53%);
+}
+button {
+    color: #fff;
+    width: fit-content;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-weight: 800;
+    background-color: hsl(271, 76%, 53%);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: hsla(271, 76%, 53%,80%);
 }

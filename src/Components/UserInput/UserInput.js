@@ -38,7 +38,7 @@ const UserInput = (props) => {
         props.onSubmit(userData);
     }
     return(
-        <div className="user_input">
+        <div className={styled.user_input}>
             <form onSubmit={handlerSubmit} action="/">
                 <label htmlFor="username">User Name</label>
                 <input type="text" name="username" id="username" value={EnterName} onChange={handlerEnterName}/>

@@ -1,8 +1,9 @@
+import styled from './UserList.module.css'
 const UserList = (props) => {
     return (
-        <ul>
+        <ul className={styled.users_list}>
             {props.usersList.map(user => (
-                <li>{`${user.name} (${user.age})`}</li>
+                <li className={styled.list_item}>{`${user.name} (${user.age})`}</li>
             ))}
         </ul>
     )

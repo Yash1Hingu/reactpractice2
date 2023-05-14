@@ -1,0 +1,15 @@
+.users_list{
+    background-color: whitesmoke;
+    list-style: none;
+    padding: 20px;
+    margin-top: 20px;
+    min-width: 500px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+}
+.list_item{
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid gray;
+    margin-bottom: 10px;
+}
