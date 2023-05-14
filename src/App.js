@@ -14,9 +14,12 @@ const DUMMY_USER = [
   }
 ]
 function App() {
+  const handlerSubmit = (data) => {
+    console.log(data);
+  }
   return (
     <div className="App">
-      <UserInput />
+      <UserInput onSubmit={handlerSubmit}/>
     </div>
   );
 }
