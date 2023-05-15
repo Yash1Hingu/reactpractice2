@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from 'react-dom';
 import styled from './UserInput.module.css'
 import ErrorDialog from "../ErrorDialog/ErrorDialog";
 const UserInput = (props) => {
@@ -47,7 +48,10 @@ const UserInput = (props) => {
                 <input type="number" name="userage" id="userage" value={EnterAge} onChange={handlerEnterAge} />
                 <button type="submit">Submit</button>
             </form>
-            <ErrorDialog open={open} onDialogClick={handlerDialog} message={message}/>
+            {createPortal(
+                <ErrorDialog open={open} onDialogClick={handlerDialog} message={message} />,
+                document.body
+            )}
         </div>
     );
 }
